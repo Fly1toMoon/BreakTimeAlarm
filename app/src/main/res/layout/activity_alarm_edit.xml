@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray"
+    tools:context=".AlarmEditActivity">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentTop="true"
+        android:paddingHorizontal="12dp"
+        android:layout_marginBottom="10dp">
+
+        <ImageView
+            android:id="@+id/btn_exit"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:foregroundGravity="center"
+            android:onClick="handleExit"
+            android:src="@drawable/ic_exit" />
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bt_border"
+            android:foregroundGravity="center"
+            android:onClick="handleSave"
+            android:text="@string/save"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/rlt_alarm_set"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/tv_alarm_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="12dp"
+                android:paddingBottom="5dp"
+                android:text="@string/alarm_title" />
+
+            <EditText
+                android:id="@+id/edt_alarm_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_alarm_label"
+                android:layout_marginStart="12dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/custom_title_edt"
+                android:text="@string/alarm_title"
+                android:hint="@string/alarm_title"
+                android:selectAllOnFocus="true"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/bg_border">
+                <TextView
+                    android:id="@+id/tv_alarm_set_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/green_800"
+                    android:text="@string/alarm_edit_begin" />
+
+                <TimePicker
+                    android:id="@+id/timePicker_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_alarm_set_start"
+                    android:timePickerMode="spinner" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/bg_border">
+                <TextView
+                    android:id="@+id/tv_alarm_set_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/green_800"
+                    android:text="@string/alarm_edit_stop" />
+
+                <TimePicker
+                    android:id="@+id/timePicker_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_alarm_set_end"
+                    android:timePickerMode="spinner" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15sp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Take a break every"
+                android:textColor="@color/black"
+                android:textSize="17sp"/>
+
+            <EditText
+                android:id="@+id/alarm_interval_hour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="1"
+                android:ems="1"
+                android:textColor="@color/green_800"
+                android:textSize="17sp"
+                android:selectAllOnFocus="true"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="hour"
+                android:textColor="@color/black"
+                android:textSize="17sp"/>
+
+            <EditText
+                android:id="@+id/alarm_interval_minute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="00"
+                android:ems="2"
+                android:textAlignment="center"
+                android:textColor="@color/green_800"
+                android:textSize="17sp"
+                android:selectAllOnFocus="true"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="minutes."
+                android:textColor="@color/black"
+                android:textSize="17sp"/>
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15sp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:text="@string/repeat"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="@string/weekdays"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+        </RelativeLayout>
+
+
+
+        <LinearLayout
+            android:paddingBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="7">
+
+            <ToggleButton
+                android:id="@+id/btn_Mon"
+                android:layout_weight="1"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:layout_marginEnd="7dp"
+                android:textOn="@string/mon"
+                android:textOff="@string/mon"
+                android:background="@drawable/custom_toggle_button"
+                android:textColor="@drawable/custom_color_toggle_button"/>
+
+            <ToggleButton
+                android:id="@+id/btn_Tue"
+                android:layout_weight="1"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:layout_marginEnd="7dp"
+                android:textOn="@string/tue"
+                android:textOff="@string/tue"
+                android:background="@drawable/custom_toggle_button"
+                android:textColor="@drawable/custom_color_toggle_button"/>
+
+            <ToggleButton
+                android:id="@+id/btn_Web"
+                android:layout_weight="1"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:layout_marginEnd="7dp"
+                android:textOn="@string/wed"
+                android:textOff="@string/wed"
+                android:background="@drawable/custom_toggle_button"
+                android:textColor="@drawable/custom_color_toggle_button"/>
+
+            <ToggleButton
+                android:id="@+id/btn_Thu"
+                android:layout_weight="1"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:layout_marginEnd="7dp"
+                android:textOn="@string/thu"
+                android:textOff="@string/thu"
+                android:background="@drawable/custom_toggle_button"
+                android:textColor="@drawable/custom_color_toggle_button"/>
+
+            <ToggleButton
+                android:id="@+id/btn_Fri"
+                android:layout_weight="1"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:layout_marginEnd="7dp"
+                android:textOn="@string/fri"
+                android:textOff="@string/fri"
+                android:background="@drawable/custom_toggle_button"
+                android:textColor="@drawable/custom_color_toggle_button"/>
+
+            <ToggleButton
+                android:id="@+id/btn_Sat"
+                android:layout_weight="1"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:layout_marginEnd="7dp"
+                android:textOn="@string/sat"
+                android:textOff="@string/sat"
+                android:background="@drawable/custom_toggle_button"
+                android:textColor="@drawable/custom_color_toggle_button"/>
+
+            <ToggleButton
+                android:id="@+id/btn_Sun"
+                android:layout_weight="1"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:textOn="@string/sun"
+                android:textOff="@string/sun"
+                android:background="@drawable/custom_toggle_button"
+                android:textColor="@drawable/custom_color_toggle_button"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

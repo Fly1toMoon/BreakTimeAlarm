@@ -376,7 +376,6 @@ public class Alarm implements Serializable {
         );
 
         int interval = getIntervaltHour() * 60 + getIntervalMinute();
-        if (interval == 0) interval = 100000000;
         int hour_mem = getStartHour(), minute_mem = getStartMinute();
         int difference = (getEndtHour() - getStartHour()) * 60 + (getEndMinute() - getStartMinute());
         for (int i = 1; i <= difference / interval; i++) {
